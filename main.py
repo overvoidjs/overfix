@@ -15,17 +15,17 @@ if action == None:
     action = "alt"
 
 spell = Speller()
-spell = Speller('ru')
+spell = Speller(lang)
 
 def getAndCorrect():
     buffer = pyperclip.paste()
     buffer = spell(buffer)
     pyperclip.copy(buffer)
 
-keyboard.add_hotkey('alt', getAndCorrect)
+keyboard.add_hotkey(action, getAndCorrect)
 
 print("OverFix запущен")
-print("Нажмите ALT для форматирования из буфера")
+print("Нажмите "+action+" для форматирования из буфера")
 print("Нажмите ALT+ESC для остановки")
 keyboard.wait('alt+esc')
 print("OverFix остановлен")
